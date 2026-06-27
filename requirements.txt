@@ -1,0 +1,24 @@
+# --- API principal ---
+fastapi==0.115.2           # Framework web para gerar Swagger automático
+uvicorn[standard]==0.30.1   # Servidor ASGI para rodar o FastAPI localmente ou em produção
+
+# --- Banco de dados ---
+pymongo==4.9.1             # Driver MongoDB
+python-dotenv==1.0.1       # Carrega variáveis de ambiente do arquivo .env
+
+# --- Validação e modelos ---
+pydantic==2.12.0           # Base para validação e documentação automática dos endpoints
+
+# --- Utilitários e segurança ---
+dnspython==2.6.1
+typing-extensions==4.15.0
+email-validator==2.1.1
+
+# --- CORS (para integração com dashboards externos) ---
+starlette==0.37.2           # Framework base do FastAPI
+
+tzdata==2025.2
+python-multipart==0.0.20
+httpie==3.2.4
+mongomock==4.3.0
+httpx==0.28.1

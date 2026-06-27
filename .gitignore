@@ -1,0 +1,131 @@
+# ===============================
+# 🐍 Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.spec
+
+# ===============================
+# 📦 Virtual Environments
+# ===============================
+venv/
+.env/
+env/
+ENV/
+env.bak/
+*.venv
+pip-wheel-metadata/
+
+# ===============================
+# 🧪 Testes / Pytest / Coverage
+# ===============================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.sqlite
+junit*.xml
+
+# ===============================
+# ⚙️ FastAPI / Uvicorn
+# ===============================
+*.pid
+*.db
+logs/
+*.log
+*.sqlite3
+
+# ===============================
+# 🌎 Configurações e Ambiente
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# 🧠 IDEs e Editores
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ===============================
+# 🧾 Documentação e Relatórios
+# ===============================
+*.pdf
+*.docx
+*.pptx
+*.odt
+*.rtf
+
+# ===============================
+# 💻 Sistema Operacional
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# 🐳 Docker
+# ===============================
+*.pid
+*.tar
+*.bak
+docker-compose.override.yml
+
+# ===============================
+# 🧰 MongoDB dumps
+# ===============================
+dump/
+*.bson
+*.json
+
+# ===============================
+# 🧾 Logs e Arquivos de Execução
+# ===============================
+*.log
+*.out
+*.err
+*.pid
+# Adicionados
+*.txt
+*.xml
+!README.md
+!requirements.txt
+!pytest.ini
+!.coveragerc
+
+# ===============================
+# ⚙️ Configs temporárias
+# ===============================
+__snapshots__/
+.cache/
+tmp/
+output
+.vercel
+temp_*.md
+debug_*.py
+
+test-api.http
+
+.agent/
+.agents/
+openspec/
+.gemini/

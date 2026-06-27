@@ -1,0 +1,19 @@
+[run]
+branch = True
+source = app
+omit =
+    app/infrastructure/*
+    app/api/*
+    app/bootstrap/*
+    app/utils/*
+    app/main.py
+    app/run.py
+    app/debug_projects.py
+    app/__init__.py
+    tests/*
+    */__init__.py
+
+[report]
+show_missing = True
+skip_empty = True
+precision = 2
