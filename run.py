@@ -29,6 +29,8 @@ def main():
         env = os.getenv("ENVIRONMENT", "production").lower()
         is_dev = env == "development"
 
+        import app.infrastructure.security.security as sec
+
         logger.info(f"Starting server in {env} mode (reload={is_dev})")
 
         # Use string extraction for reload support only in dev
