@@ -129,3 +129,4 @@ test-api.http
 .agents/
 openspec/
 .gemini/
+!data/*
