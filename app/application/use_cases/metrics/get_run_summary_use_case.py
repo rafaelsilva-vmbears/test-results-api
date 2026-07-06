@@ -20,8 +20,7 @@ class GetRunSummaryUseCase:
         self,
         project: str,
         environment: str,
-        start_dt: datetime,
-        end_dt: datetime
+        start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None
     ) -> Optional[MetricsSummaryDTO]:
         """Retrieves and processes metrics summaries for the given project and environment."""
 
@@ -36,10 +35,10 @@ class GetRunSummaryUseCase:
             raise ValueError(
                 "Environment must be provided and cannot be empty.")
 
-        if start_dt > end_dt:
+        if start_dt and end_dt and start_dt > end_dt:
             raise ValueError("Start date must be before end date.")
 
-        summary = self.repo.get_summary(project, environment, start_dt, end_dt)
+        summary = self.repo.get_summary(project, environment, start_dt, end_dt, last_runs)
 
         if not summary:
             logger.info(

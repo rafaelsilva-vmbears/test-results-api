@@ -30,7 +30,7 @@ from app.api.dependencies import (
     get_trends_use_case, get_test_cases_use_case, get_mttr_use_case,
     get_common_errors_use_case, get_performance_metrics_use_case
 )
-from app.utils.validate_date_range import validate_date_range
+from app.utils.query_filters import get_metrics_filters, MetricsFilter
 
 router = APIRouter(prefix="/metrics",
                    tags=["Metrics"], dependencies=[Depends(verify_api_key)])
@@ -67,7 +67,7 @@ def get_metrics_summary(
     project: str = Query(..., description="Nome do projeto (obrigatório)"),
     environment: str = Query(...,
                              description="Ambiente do projeto (obrigatório)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetRunSummaryUseCase = Depends(get_run_summary_use_case)
 ):
     """
@@ -79,9 +79,8 @@ def get_metrics_summary(
     - Last run number (`last_run_number`)
     - Date of last run (`last_execution_date`)
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if result is None:
         return None
@@ -119,16 +118,15 @@ def get_failed_tests(
     project: str = Query(..., description="Nome do projeto (obrigatório)"),
     environment: str = Query(...,
                              description="Ambiente do projeto (obrigatório)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetFailedTestsUseCase = Depends(get_failed_tests_use_case)
 ):
     """
     Lists all tests that **failed** within the selected period.
     Returns the test name, execution number, and the last error message.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if not result:
         return []
@@ -151,16 +149,15 @@ def get_failed_tests(
 def get_module_health(
     project: str = Query(..., description="Nome do projeto (obrigatório)"),
     environment: str = Query(..., description="Ambiente do projeto (obrigatório)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetModuleHealthUseCase = Depends(get_module_health_use_case)
 ):
     """
     Groups failed tests by their base module/package name
     and returns a count of failures per module.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if not result:
         return []
@@ -183,16 +180,15 @@ def get_module_health(
 def get_flaky_tests(
     project: str = Query(..., description="Nome do projeto (obrigatório)"),
     environment: str = Query(..., description="Ambiente do projeto (obrigatório)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetFlakyTestsUseCase = Depends(get_flaky_tests_use_case)
 ):
     """
     Identifies tests that fail intermittently across multiple runs.
     Returns the test name, number of failures, and instability score.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if not result:
         return []
@@ -215,16 +211,15 @@ def get_flaky_tests(
 def get_trends(
     project: str = Query(..., description="Nome do projeto (obrigatório)"),
     environment: str = Query(..., description="Ambiente do projeto (obrigatório)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetTrendsUseCase = Depends(get_trends_use_case)
 ):
     """
     Returns aggregated metrics grouped by day.
     Useful for visualizing stability evolution over time.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if not result:
         return []
@@ -276,16 +271,15 @@ def get_test_cases(
 def get_mttr(
     project: str = Query(..., description="Nome do projeto (obrigatório)"),
     environment: str = Query(..., description="Ambiente do projeto (obrigatório)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetMTTRUseCase = Depends(get_mttr_use_case)
 ):
     """
     Returns the average time (in hours) it takes for a failed test
     to recover (pass) within the specified period.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if not result:
         return MTTRSummarySchema(project=project, environment=environment, mttr_hours=0.0, total_recoveries=0)
@@ -308,15 +302,14 @@ def get_mttr(
 def get_common_errors(
     project: str = Query(..., description="Project name (required)"),
     environment: str = Query(..., description="Environment (required)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetCommonErrorsUseCase = Depends(get_common_errors_use_case)
 ):
     """
     Returns aggregated test failures grouped by their error message.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     if not result:
         return []
@@ -335,14 +328,13 @@ def get_common_errors(
 def get_performance_metrics(
     project: str = Query(..., description="Project name (required)"),
     environment: str = Query(..., description="Environment (required)"),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     use_case: GetPerformanceMetricsUseCase = Depends(get_performance_metrics_use_case)
 ):
     """
     Returns performance metrics such as average execution duration and top 10 slowest tests.
     """
-    start_dt, end_dt = dates
     result = use_case.execute(
-        project.lower(), environment.lower(), start_dt, end_dt)
+        project.lower(), environment.lower(), filters.start_dt, filters.end_dt, filters.last_runs)
 
     return PerformanceMetricsSchema(**asdict(result))

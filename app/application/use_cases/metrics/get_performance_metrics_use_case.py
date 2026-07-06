@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Tuple
+from typing import Optional, Tuple
 from app.domain.interfaces.metrics_repository_interface import MetricsRepositoryInterface
 from app.domain.entities.performance_metrics import PerformanceMetricsSummary
 
@@ -11,9 +11,8 @@ class GetPerformanceMetricsUseCase:
         self,
         project: str,
         environment: str,
-        start_dt: datetime,
-        end_dt: datetime
+        start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None
     ) -> PerformanceMetricsSummary:
         return self.metrics_repository.get_performance_metrics(
-            project, environment, start_dt, end_dt
+            project, environment, start_dt, end_dt, last_runs
         )

@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import Optional, List
 
 from app.domain.interfaces.metrics_repository_interface import MetricsRepositoryInterface
 from app.domain.entities.common_error_summary import CommonErrorSummary
@@ -14,12 +14,12 @@ class GetCommonErrorsUseCase:
         self.metrics_repository = metrics_repository
 
     def execute(
-        self, project: str, environment: str, start_dt: datetime, end_dt: datetime
+        self, project: str, environment: str, start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None
     ) -> List[CommonErrorSummary]:
         try:
             logger.info("Executing GetCommonErrorsUseCase for project: %s", project)
             return self.metrics_repository.get_common_errors(
-                project, environment, start_dt, end_dt
+                project, environment, start_dt, end_dt, last_runs
             )
         except Exception as e:
             logger.error("Error in GetCommonErrorsUseCase: %s", e)

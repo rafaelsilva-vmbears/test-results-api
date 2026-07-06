@@ -23,14 +23,14 @@ class TestGetModuleHealthUseCase:
         end_dt = datetime(2023, 1, 31)
 
         domain_entity = [
-            ModuleHealthSummary(module_name="ModuleA", fail_count=10)
+            ModuleHealthSummary(module_name="ModuleA", fail_count=10, total_tests=100, failure_rate=10.0)
         ]
         mock_repo.get_module_health.return_value = domain_entity
 
         result = sut.execute(project_name, env_name, start_dt, end_dt)
 
         mock_repo.get_module_health.assert_called_once_with(
-            "redeagro", "production", start_dt, end_dt
+            "redeagro", "production", start_dt, end_dt, None
         )
         assert result == domain_entity
 

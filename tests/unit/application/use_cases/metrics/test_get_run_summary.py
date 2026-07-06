@@ -48,7 +48,7 @@ class TestGetRunSummaryUseCase:
         result = sut.execute(project_name, env_name, start_dt, end_dt)
 
         mock_repo.get_summary.assert_called_once_with(
-            "redeagro", "production", start_dt, end_dt
+            "redeagro", "production", start_dt, end_dt, None
         )
         assert isinstance(result, MetricsSummaryDTO)
         assert result.avg_pass_rate == 95.12

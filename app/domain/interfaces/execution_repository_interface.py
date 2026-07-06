@@ -3,7 +3,7 @@
 """
     Repository Interface
 """
-from typing import Protocol, List
+from typing import Protocol, List, Optional
 from datetime import datetime
 from app.domain.entities.execution_entity import ExecutionEntity
 
@@ -23,12 +23,12 @@ class ExecutionRepositoryInterface(Protocol):
     def find_executions(
         self,
         project: str,
-        environment,
-        start_dt: datetime,
-        end_dt: datetime,
+        environment: str,
+        start_dt: Optional[datetime] = None,
+        end_dt: Optional[datetime] = None,
         limit: int = 50,
     ) -> List[ExecutionEntity]:
-        """Retorna lista de ExecutionEntity."""
+        """Finds executions based on filters."""
 
     def get_execution_by_id(
         self,

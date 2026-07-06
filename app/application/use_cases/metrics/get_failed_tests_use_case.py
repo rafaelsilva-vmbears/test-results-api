@@ -10,7 +10,7 @@ Dependencies:
 """
 
 from datetime import datetime
-from typing import List
+from typing import Optional, List
 from app.domain.interfaces.metrics_repository_interface import MetricsRepositoryInterface
 from app.application.dtos.metrics_dto import FailedTestDTO
 from app.infrastructure.logging.logging_config import get_logger
@@ -25,7 +25,7 @@ class GetFailedTestsUseCase:
     def __init__(self, repository: MetricsRepositoryInterface):
         self.repo = repository
 
-    def execute(self, project: str, environment: str, start_dt: datetime, end_dt: datetime) -> List[FailedTestDTO]:
+    def execute(self, project: str, environment: str, start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[FailedTestDTO]:
         """Retrieve and process failed test metrics for the specified project and date range."""
 
         project = project.strip().lower()
@@ -39,11 +39,11 @@ class GetFailedTestsUseCase:
             raise ValueError(
                 "Environment must be provided and cannot be empty.")
 
-        if start_dt > end_dt:
+        if start_dt and end_dt and start_dt > end_dt:
             raise ValueError("Start date must be before end date.")
 
         data = self.repo.get_failed_tests(
-            project, environment, start_dt, end_dt)
+            project, environment, start_dt, end_dt, last_runs)
 
         if not data:
             return []

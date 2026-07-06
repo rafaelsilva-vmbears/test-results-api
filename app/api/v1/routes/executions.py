@@ -30,7 +30,7 @@ from app.api.dependencies import (
     get_create_execution_use_case,
     get_list_executions_use_case,
 )
-from app.utils.validate_date_range import validate_date_range
+from app.utils.query_filters import get_metrics_filters, MetricsFilter
 
 
 BR_ZONE_INFO = ZoneInfo("America/Sao_Paulo")
@@ -164,29 +164,24 @@ def list_executions(
         ...,
         description="Ambiente da execução (obrigatório)",
     ),
-    dates: Tuple[datetime, datetime] = Depends(validate_date_range),
+    filters: MetricsFilter = Depends(get_metrics_filters),
     limit: int = Query(
         50,
         ge=1,
         le=500,
-        description="Número máximo de resultados (1-500)",
+        description="Número máximo de resultados (1-500). Ignorado se last_runs for usado.",
     ),
     use_case: GetListExecutionsUseCase = Depends(get_list_executions_use_case),
 ):
     """
-    Lists test runs filtered by **project** and **period**.
-
-    Dates must be in **Brazilian format (dd/mm/yyyy)**.
-    Example: `10/05/2025` to `10/09/2025`.
+    Lists test runs filtered by **project** and **period** or **last runs**.
     """
-    start_date, end_date = dates
-
     executions_list = use_case.execute(
         project.lower(),
         environment.lower(),
-        start_date,
-        end_date,
-        limit,
+        filters.start_dt,
+        filters.end_dt,
+        filters.last_runs if filters.last_runs else limit,
     )
     return executions_list
 

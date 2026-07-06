@@ -30,7 +30,7 @@ class TestGetFlakyTestsUseCase:
         result = sut.execute(project_name, env_name, start_dt, end_dt)
 
         mock_repo.get_flaky_tests.assert_called_once_with(
-            "redeagro", "production", start_dt, end_dt
+            "redeagro", "production", start_dt, end_dt, None
         )
         assert result == domain_entity
 

@@ -25,43 +25,48 @@ class MetricsRepositoryInterface(Protocol):
         self,
         project: str,
         environment: str,
-        start_dt: datetime,
-        end_dt: datetime
+        start_dt: Optional[datetime] = None,
+        end_dt: Optional[datetime] = None,
+        last_runs: Optional[int] = None
     ) -> Optional[MetricsSummary]:
         """Retrieve a summary of metrics for a given project,
-        optionally filtered by a date range."""
+        optionally filtered by a date range or last runs."""
 
     def get_failed_tests(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[FailedTestSummary]:
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> List[FailedTestSummary]:
         """Retrieve a list of failed tests for a project,
-                optionally filtered by a date range."""
+                optionally filtered by a date range or last runs."""
 
     def get_module_health(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[ModuleHealthSummary]:
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> List[ModuleHealthSummary]:
         """Retrieve a list of modules and their failure counts."""
 
     def get_flaky_tests(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[FlakyTestSummary]:
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> List[FlakyTestSummary]:
         """Retrieve a list of flaky tests with instability scores."""
 
     def get_trends(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[TrendSummary]:
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> List[TrendSummary]:
         """Retrieve trends grouped by day."""
 
     def get_test_cases(
@@ -74,22 +79,25 @@ class MetricsRepositoryInterface(Protocol):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> MTTRSummary:
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> MTTRSummary:
         """Calculate Mean Time To Recovery for broken tests."""
 
     def get_common_errors(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[CommonErrorSummary]:
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> List[CommonErrorSummary]:
         """Retrieve a list of common errors grouped by message."""
 
     def get_performance_metrics(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> 'PerformanceMetricsSummary':
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> 'PerformanceMetricsSummary':
         """Retrieve average execution time and slowest tests."""

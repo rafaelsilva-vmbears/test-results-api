@@ -1,4 +1,4 @@
-from typing import List
+from typing import Optional, List
 from datetime import datetime, timezone
 from bson.objectid import ObjectId
 from bson.errors import InvalidId
@@ -90,9 +90,9 @@ class ExecutionRepository(ExecutionRepositoryInterface):
     def find_executions(
         self,
         project: str,
-        environment,
-        start_dt: datetime,
-        end_dt: datetime,
+        environment: str,
+        start_dt: Optional[datetime] = None,
+        end_dt: Optional[datetime] = None,
         limit: int = 50,
     ) -> List[ExecutionEntity]:
         """Finds executions for a given project and environment within a date range."""
@@ -103,11 +103,9 @@ class ExecutionRepository(ExecutionRepositoryInterface):
         query = {
             "project": project,
             "environment": environment,
-            "created_at": {
-                "$gte": start_dt,
-                "$lte": end_dt,
-            },
         }
+        if start_dt and end_dt:
+            query["created_at"] = {"$gte": start_dt, "$lte": end_dt}
 
         docs = self.adapter.find(
             collection=self.runs_collection,

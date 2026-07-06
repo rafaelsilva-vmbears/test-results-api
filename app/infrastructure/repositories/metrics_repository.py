@@ -23,26 +23,36 @@ class MetricsRepository(MetricsRepositoryInterface):
         self.collection = "runs"
 
     # Retorna métricas de um projeto por período
+    
+    def _build_match_pipeline(
+            self,
+            project: str,
+            environment: str,
+            start_dt: Optional[datetime],
+            end_dt: Optional[datetime],
+            last_runs: Optional[int]
+    ) -> List[Dict]:
+        """Builds the initial pipeline stages for matching or limiting runs."""
+        pipeline = [{"$match": {"project": project, "environment": environment}}]
+        if last_runs:
+            pipeline.append({"$sort": {"execution_date": -1, "created_at": -1}})
+            pipeline.append({"$limit": last_runs})
+        elif start_dt and end_dt:
+            pipeline[0]["$match"]["created_at"] = {"$gte": start_dt, "$lte": end_dt}
+        return pipeline
+
     def get_summary(
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> Optional[MetricsSummary]:
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> Optional[MetricsSummary]:
         """Retrieves summary metrics for a given project within a specified date range."""
 
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
-
         col = self.adapter.get_collection(self.collection)
-        matched_count = col.count_documents(query)
+        matched_count = col.count_documents({"project": project, "environment": environment}) # simplified for log
         logger.info("Documents matching date range: %d", matched_count)
 
-        pipeline = [
-            {"$match": query},
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$group": {
                 "_id": "$project",
                 "environment": {"$first": "$environment"},
@@ -111,19 +121,11 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[FailedTestSummary]:
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[FailedTestSummary]:
         """Retrieves a list of failed tests for a given project within a specified date range."""
 
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
-
         # Pipeline simplificada que usa diretamente o campo failed_cases
-        pipeline = [
-            {"$match": query},
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$project": {
                 "_id": 0,
                 "failed_cases": 1,
@@ -174,17 +176,9 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[ModuleHealthSummary]:
-
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[ModuleHealthSummary]:
         
-        pipeline = [
-            {"$match": query},
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$project": {"test_results": 1}}
         ]
         
@@ -235,20 +229,17 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[FlakyTestSummary]:
-
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
-        total_runs = self.adapter.get_collection(self.collection).count_documents(query)
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[FlakyTestSummary]:
+        if last_runs:
+            total_runs = last_runs
+        else:
+            total_runs = self.adapter.get_collection(self.collection).count_documents({"project": project, "environment": environment, "created_at": {"$gte": start_dt, "$lte": end_dt}})
 
         if total_runs == 0:
             return []
 
-        failed_tests = self.get_failed_tests(project, environment, start_dt, end_dt)
+        failed_tests = self.get_failed_tests(project, environment, start_dt, end_dt, last_runs)
+
         results = []
 
         for test in failed_tests:
@@ -271,16 +262,9 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[TrendSummary]:
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[TrendSummary]:
 
-        pipeline = [
-            {"$match": query},
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$group": {
                 # Group by day string formatted YYYY-MM-DD
                 "_id": {
@@ -345,18 +329,10 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> MTTRSummary:
-
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> MTTRSummary:
 
         # We need executions sorted chronologically
-        pipeline = [
-            {"$match": query},
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$sort": {"execution_date": 1, "created_at": 1}},
             {"$project": {"execution_date": 1, "created_at": 1, "test_results": 1}}
         ]
@@ -421,17 +397,9 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> List[CommonErrorSummary]:
-        
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[CommonErrorSummary]:
 
-        pipeline = [
-            {"$match": query},
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$unwind": "$failed_cases"},
             # Ensure message is not null
             {"$match": {"failed_cases.message": {"$ne": None}}},
@@ -462,18 +430,10 @@ class MetricsRepository(MetricsRepositoryInterface):
             self,
             project: str,
             environment: str,
-            start_dt: datetime,
-            end_dt: datetime) -> 'PerformanceMetricsSummary':
-        
-        query = {
-            "project": project,
-            "environment": environment,
-            "created_at": {"$gte": start_dt, "$lte": end_dt}
-        }
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> 'PerformanceMetricsSummary':
 
         # Calculate average execution time
-        pipeline_avg = [
-            {"$match": query},
+        pipeline_avg = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$group": {
                 "_id": None,
                 "avg_execution_time": {"$avg": "$time"}
@@ -485,8 +445,7 @@ class MetricsRepository(MetricsRepositoryInterface):
         avg_time = avg_result[0]["avg_execution_time"] if avg_result and avg_result[0].get("avg_execution_time") else 0.0
 
         # Calculate slowest tests
-        pipeline_slowest = [
-            {"$match": query},
+        pipeline_slowest = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
             {"$unwind": "$test_results"},
             {"$group": {
                 "_id": "$test_results.name",

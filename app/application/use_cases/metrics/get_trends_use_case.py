@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import Optional, List
 
 from app.domain.interfaces.metrics_repository_interface import MetricsRepositoryInterface
 from app.domain.entities.trend_summary import TrendSummary
@@ -14,10 +14,10 @@ class GetTrendsUseCase:
     def __init__(self, metrics_repository: MetricsRepositoryInterface):
         self.metrics_repository = metrics_repository
 
-    def execute(self, project: str, environment: str, start_dt: datetime, end_dt: datetime) -> List[TrendSummary]:
+    def execute(self, project: str, environment: str, start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List[TrendSummary]:
         try:
             logger.info("Executing GetTrendsUseCase for project: %s", project)
-            return self.metrics_repository.get_trends(project, environment, start_dt, end_dt)
+            return self.metrics_repository.get_trends(project, environment, start_dt, end_dt, last_runs)
         except Exception as e:
             logger.error("Error in GetTrendsUseCase: %s", e)
             raise e
