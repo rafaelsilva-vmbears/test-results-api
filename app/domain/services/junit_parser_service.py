@@ -67,6 +67,15 @@ class JUnitParserService:
                 status = TestResultStatus.SKIPPED
                 message = (skipped.attrib.get("message") or (skipped.text or "").strip() or None)
 
+            if message and isinstance(message, str) and message.startswith("*HTML*"):
+                import re
+                # Converter <br> em quebras de linha reais para melhor leitura no front
+                message = message.replace("<br>", "\n").replace("<br/>", "\n")
+                # Remover todas as outras tags HTML
+                message = re.sub(r'<[^>]+>', '', message)
+                # Remover o marcador inicial e aparar espaços
+                message = message.replace("*HTML*", "").strip()
+
             cases.append(TestCaseResult(
                 name=name or "unknown",
                 classname=classname,

@@ -162,8 +162,12 @@ def main():
     print(f"[OK] API conectada em {args.url}")
 
     # Encontrar XMLs
+    import re
+    def natural_keys(text):
+        return [int(c) if c.isdigit() else c for c in re.split(r'(\d+)', text)]
+
     xml_pattern = os.path.join(args.dir, "**", "*.xml")
-    files = sorted(glob.glob(xml_pattern, recursive=True))
+    files = sorted(glob.glob(xml_pattern, recursive=True), key=natural_keys)
 
     if not files:
         print(f"\n[AVISO] Nenhum arquivo XML encontrado em {args.dir}/")

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="120" errors="0" failures="25" skipped="21" time="9172.016" timestamp="">
+<testsuite name="Api" tests="11" errors="0" failures="1" skipped="0" time="499.074" timestamp="">
+<testsuite name="EnvioEmail" tests="6" errors="0" failures="1" skipped="0" time="462.446" timestamp="">
+<testcase classname="Tests.Api.EnvioEmail" name="Envio Email - Scheduler Tarefas Abertas Deve Processar Em Dia Util" time="301.658">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Endpoint retornou status 504 ao invés de 200.: 504 != 200&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Endpoint retornou status 504 ao invés de 200.: 504 != 200&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Api.EnvioEmail" name="Envio Email - Scheduler Tarefas Abertas Em FDS Deve Bloquear Processamento" time="1.532">
+</testcase>
+<testcase classname="Tests.Api.EnvioEmail" name="Envio Email - Scheduler Instancias Concluidas Deve Processar" time="4.167">
+</testcase>
+<testcase classname="Tests.Api.EnvioEmail" name="Envio Email - Scheduler Tarefas Atrasadas Deve Processar" time="135.344">
+</testcase>
+<testcase classname="Tests.Api.EnvioEmail" name="Envio Email - Scheduler Instancias Concluidas Nao Deve Duplicar Registros No Dia Seguinte" time="3.195">
+</testcase>
+<testcase classname="Tests.Api.EnvioEmail" name="Envio Email - Scheduler Instancias Concluidas Deve Consolidar Multiplas Tarefas Num Unico Log" time="16.550">
+</testcase>
+<properties>
+<property name="Documentation" value="Testes API da feature Envio de Email (PGDCR-3147 / PGDCR-3148).&#10;Valida os schedulers de email via endpoints /test/email-* e&#10;auditoria em GDCR_PCMT_ASCR usando padrão Delta (count before/after).&#10;Execução: uv run robot -d reports/envio-email -i envio-email -v ENVIRONMENT:STAGING tests/"/>
+</properties>
+</testsuite>
+<testsuite name="SmokeAPI" tests="5" errors="0" failures="0" skipped="0" time="36.628" timestamp="2026-07-06T11:46:13.698000">
+<testcase classname="Tests.Api.SmokeAPI" name="API - Consultar Bancos Via Backend Direto" time="0.759">
+</testcase>
+<testcase classname="Tests.Api.SmokeAPI" name="API - Consultar Tipos Alteracao Contratual" time="0.080">
+</testcase>
+<testcase classname="Tests.Api.SmokeAPI" name="API - Consultar Produtos QTDE" time="0.429">
+</testcase>
+<testcase classname="Tests.Api.SmokeAPI" name="API - Consultar Tarefas BPM" time="26.770">
+</testcase>
+<testcase classname="Tests.Api.SmokeAPI" name="API - Diagnostico Massa Contratos Alteracao" time="0.595">
+</testcase>
+<properties>
+<property name="Documentation" value="Smoke test para validar a integração do GdcrAPI.pages.resource com o backend GDCR.&#10;Roda sem browser — testa apenas os wrappers de API."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="Ui" tests="109" errors="0" failures="24" skipped="21" time="8672.855" timestamp="">
+<testsuite name="Aditamento" tests="17" errors="0" failures="12" skipped="5" time="1579.859" timestamp="">
+<testsuite name="TransferenciaTitularidadeComprador" tests="2" errors="0" failures="2" skipped="0" time="278.728" timestamp="">
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeComprador" name="[Aditamento - Transferência Titularidade Comprador] Validação Completa com Sucesso com filial" time="60.810">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeComprador" name="[Aditamento - Transferência Titularidade Comprador] Validação Completa com Sucesso sem filial e conta reserva" time="60.859">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suíte de Testes de UI para Transferência de Titularidade (Comprador).&#10;Atualizada para adotar a arquitetura com Provisionamento de Massa via Suite Setup."/>
+</properties>
+</testsuite>
+<testsuite name="TransferenciaTitularidadeExcecoesCCEAR" tests="3" errors="0" failures="3" skipped="0" time="331.347" timestamp="">
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCCEAR" name="[Tela - Envio de dados transferência de titularidade - CCEAR - Comprador] Email inválido - Representante Contrato" time="64.553">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCCEAR" name="[Tela - Envio de dados transferência de titularidade - CCEAR - Comprador] Email inválido - Representante Garantias" time="61.234">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCCEAR" name="[Tela - Envio de dados transferência de titularidade - CCEAR - Comprador] CNPJ Invalido do Banco Gestor" time="70.730">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário de Envio de Dados não carregou. A seção de Representantes não está visível após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Objetivo: Garantir o processamento da troca de titularidade&#10;validando desde a preparação dos dados até integração final com o BPM&#10;e com as validações de entrada dos campos (Exceções)."/>
+</properties>
+</testsuite>
+<testsuite name="TransferenciaTitularidadeExcecoesCER" tests="2" errors="0" failures="2" skipped="0" time="234.282" timestamp="">
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCER" name="[Tela - Envio de dados transferência de titularidade - CER - Vendedor] Email inválido" time="115.173">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCER" name="[Tela - Envio de dados transferência de titularidade - CER - Vendedor] Nome Invalido" time="119.109">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Objetivo: Garantir o processamento da troca de titularidade CER (Vendedor),&#10;validando a preparação de dados e integrações BPM/API,&#10;e com as validações de entrada dos campos (Exceções)."/>
+</properties>
+</testsuite>
+<testsuite name="TransferenciaTitularidadeExcecoesCRCAP" tests="2" errors="0" failures="0" skipped="2" time="43.091" timestamp="2026-07-06T11:51:35.932000">
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCRCAP" name="[Tela - Envio de dados transferência de titularidade - CRCAP - Vendedor] Email inválido" time="21.132">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeExcecoesCRCAP" name="[Tela - Envio de dados transferência de titularidade - CRCAP - Vendedor] Nome Invalido" time="21.959">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Objetivo: Garantir o processamento da troca de titularidade CRCAP (Vendedor),&#10;validando a preparação de dados e integrações BPM/API,&#10;e com as validações de entrada dos campos (Exceções)."/>
+</properties>
+</testsuite>
+<testsuite name="TransferenciaTitularidadeVendedor" tests="8" errors="0" failures="5" skipped="3" time="692.412" timestamp="">
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CRCAP - Vendedor] CheckBox Marcado" time="25.811">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CRCAP - Vendedor] Envio Dados Válidos" time="26.612">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CRCAP - Vendedor] CheckBox Desmarcado" time="23.295">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CER - Vendedor] CheckBox Marcado" time="108.118">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CER - Vendedor] CheckBox Desmarcado" time="121.564">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CER - Vendedor] Envio Dados Válidos" time="132.586">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Formulário simplificado de Envio de Dados não carregou após 30s.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CCEAR - Vendedor] CheckBox Marcado" time="123.881">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; O formulário &quot;Representantes para [agente]&quot; não hidratou em 30s. Verifique se a API retornou e renderizou os inputs.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; O formulário &quot;Representantes para [agente]&quot; não hidratou em 30s. Verifique se a API retornou e renderizou os inputs.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Aditamento.TransferenciaTitularidadeVendedor" name="[Tela - Envio de dados transferência de titularidade - CCEAR - Vendedor] CheckBox Desmarcado" time="130.543">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; O formulário &quot;Representantes para [agente]&quot; não hidratou em 30s. Verifique se a API retornou e renderizou os inputs.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; O formulário &quot;Representantes para [agente]&quot; não hidratou em 30s. Verifique se a API retornou e renderizou os inputs.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de UI para o fluxo de Transferência de Titularidade - Papel Vendedor."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="Contratos" tests="56" errors="0" failures="7" skipped="2" time="5060.131" timestamp="">
+<testsuite name="AlteraçãoContratual" tests="26" errors="0" failures="5" skipped="0" time="2645.584" timestamp="">
+<testsuite name="AnuenciaCessao" tests="4" errors="0" failures="0" skipped="0" time="426.416" timestamp="">
+<testsuite name="AnuenciaCessao" tests="4" errors="0" failures="0" skipped="0" time="426.416" timestamp="">
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.AnuenciaCessao.AnuenciaCessao" name="[Jornada 06] PGDCR-1882: Validar Trava de Obrigatoriedade do Agente e do Contrato Inicial" time="93.179">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.AnuenciaCessao.AnuenciaCessao" name="[Jornada 06] PGDCR-1887: Validar Trava Antifraude com CNPJ do Titular Divergente" time="101.788">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.AnuenciaCessao.AnuenciaCessao" name="[Jornada 06] PGDCR-1886: Validar Trava de Vigência Retrógrada" time="88.574">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.AnuenciaCessao.AnuenciaCessao" name="[Jornada 06] PGDCR-1889: Concluir Solicitação de Anuência à Cessão com Sucesso e Download de PDF" time="142.875">
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de UI para a funcionalidade de anuência à cessão de direitos creditórios&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1882&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1887&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1886&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1889"/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="SemAditamento" tests="17" errors="0" failures="2" skipped="0" time="1629.073" timestamp="">
+<testsuite name="CCEAR" tests="17" errors="0" failures="2" skipped="0" time="1629.073" timestamp="">
+<testsuite name="AlteracaoContratualSemAditamento" tests="8" errors="0" failures="1" skipped="0" time="739.401" timestamp="">
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Deve ser possível realizar alteracao contratual sem aditamento para Vendedor" time="135.227">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Deve ser possível realizar alteracao contratual sem aditamento e sem alterar o representante de garantia" time="117.106">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Deve ser possível realizar alteração contratual alterando apenas dados bancários" time="92.610">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Não deve ser possível realizar alteração contratual sem aditamento se não selecionar que leu os termos da minuta" time="84.962">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Validar mensagens de obrigatoriedade nos campos do representante" time="71.269">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Validar mensagens de erro para agência e conta bancária inválidas" time="67.317">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Validar formato de E-mail" time="84.692">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.AlteracaoContratualSemAditamento" name="Validar formato Telefone" time="86.219">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator('xpath=(//fx-container[@lefttitle=&quot;Representantes para comunicação&quot;]//mat-form-field[.//mat-label[contains(text(), &quot;Telefone&quot;)]]//input)[1]/ancestor::mat-form-field//mat-error').first() to be visible&#10;&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator('xpath=(//fx-container[@lefttitle=&quot;Representantes para comunicação&quot;]//mat-form-field[.//mat-label[contains(text(), &quot;Telefone&quot;)]]//input)[1]/ancestor::mat-form-field//mat-error').first() to be visible&#10;&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de UI para a funcionalidade de alteração contratual sem aditamento no cockpit."/>
+</properties>
+</testsuite>
+<testsuite name="Filtros" tests="5" errors="0" failures="1" skipped="0" time="563.490" timestamp="">
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.Filtros" name="Deve ser setado o filtro por vendedor como default pra a tela de alteração contratual" time="89.754">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.Filtros" name="Deve ser possível realizar filtragem por empreendimento na tela final de alteração" time="142.730">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Não foi possível selecionar VOTENER-QTD-S após 3 tentativas.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Não foi possível selecionar  após 3 tentativas.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.Filtros" name="Deve ser possível realizar filtragem por leilão na tela final de alteração" time="104.511">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.Filtros" name="Deve ser possível realizar filtragem por Comprador na tela final de alteração" time="114.050">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.Filtros" name="Deve ser possível realizar filtragem por Número do contrato na tela final de alteração" time="112.445">
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de UI para a funcionalidade de alteração contratual sem aditamento no cockpit.&#10;Test Case: PGDCR-1973 -&gt; https://centraldeservicosccee.atlassian.net/browse/PGDCR-1973"/>
+</properties>
+</testsuite>
+<testsuite name="MultiplasFiliais" tests="4" errors="0" failures="0" skipped="0" time="326.182" timestamp="">
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.MultiplasFiliais" name="Validar soma do Percentual de rateio igual a 100%" time="96.795">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.MultiplasFiliais" name="Validar erro quando soma do Percentual de rateio diferente de 100%" time="70.252">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.MultiplasFiliais" name="Remover uma filial e revalidar percentuais" time="102.765">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.SemAditamento.CCEAR.MultiplasFiliais" name="Validar mensagens de obrigatoriedade nos campos do faturamento" time="56.371">
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de gerenciamento de múltiplas filiais e validação de rateio."/>
+</properties>
+</testsuite>
+</testsuite>
+</testsuite>
+<testsuite name="TrocaBancoGestor" tests="5" errors="0" failures="3" skipped="0" time="590.095" timestamp="">
+<testsuite name="CCEAR" tests="5" errors="0" failures="3" skipped="0" time="590.095" timestamp="">
+<testsuite name="AlteracaoContratual" tests="5" errors="0" failures="3" skipped="0" time="590.095" timestamp="">
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.TrocaBancoGestor.CCEAR.AlteracaoContratual" name="[Jornada 07] PGDCR-1862: Aplicar filtros e listar solicitações" time="164.912">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Several failures occurred:&#10;&#10;1) TimeoutError: locator.click: Timeout 10000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//span[text()=\'Filtros\']/parent::div').first()&#10;    - locator resolved to &amp;lt;div matripple=&quot;&quot; id=&quot;tabHandler&quot; _ngcontent-cqp-c34=&quot;&quot; class=&quot;white-background rounded-bottom primary-color position-absolute d-flex flex-row align-items-center justify-content-center mat-ripple&quot;&amp;gt;…&amp;lt;/div&amp;gt;&#10;  - attempting click action&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;      - scrolling into view if needed&#10;      - done scrolling&#10;      - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;    - retrying click action&#10;    - waiting 20ms&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;    [ Message content over the limit has been removed. ]&#10;    - retrying click action&#10;    - waiting 20ms&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;      - scrolling into view if needed&#10;      - done scrolling&#10;      - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;    - retrying click action&#10;      - waiting 100ms&#10;    19 × waiting for element to be visible, enabled and stable&#10;       - element is visible, enabled and stable&#10;       - scrolling into view if needed&#10;       - done scrolling&#10;       - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;     - retrying click action&#10;       - waiting 500ms&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Several failures occurred:&#10;&#10;1) TimeoutError: locator.waitFor: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//h1[contains(translate(text(), \'ABCDEFGHIJKLMNOPQRSTUVWXYZ\', \'abcdefghijklmnopqrstuvwxyz\'), &quot;contratos&quot;)]').first() to be visible&#10;&#10;&#10;2) TimeoutError: locator.waitFor: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//h1[contains(translate(text(), \'ABCDEFGHIJKLMNOPQRSTUVWXYZ\', \'abcdefghijklmnopqrstuvwxyz\'), &quot;contratos&quot;)]').first() to be visible&#10;&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.TrocaBancoGestor.CCEAR.AlteracaoContratual" name="[Tela - Alterar contratos - Banco Gestor] Concluir solicitação com resultados listados" time="199.624">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 90000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//span[text()=&quot;Solicitação de alteração contratual realizada com sucesso!&quot;]').first() to be visible&#10;&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 90000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//span[text()=&quot;Solicitação de alteração contratual realizada com sucesso!&quot;]').first() to be visible&#10;&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.TrocaBancoGestor.CCEAR.AlteracaoContratual" name="[Tela - Alterar contratos - Banco Gestor] Cancelar sem realizar a solicitação" time="98.206">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.TrocaBancoGestor.CCEAR.AlteracaoContratual" name="[Jornada 07] PGDCR-2130: Validar UI de Edição Bloqueada para Comprador" time="56.763">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; TimeoutError: locator.click: Timeout 10000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//span[text()=\'Filtros\']/parent::div').first()&#10;    - locator resolved to &amp;lt;div matripple=&quot;&quot; id=&quot;tabHandler&quot; _ngcontent-bub-c34=&quot;&quot; class=&quot;white-background rounded-bottom primary-color position-absolute d-flex flex-row align-items-center justify-content-center mat-ripple&quot;&amp;gt;…&amp;lt;/div&amp;gt;&#10;  - attempting click action&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;      - scrolling into view if needed&#10;      - done scrolling&#10;      - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;    - retrying click action&#10;    - waiting 20ms&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;      - scrolling into view if needed&#10;      - done scrolling&#10;      - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;    - retrying click action&#10;      - waiting 100ms&#10;    19 × waiting for element to be visible, enabled and stable&#10;       - element is visible, enabled and stable&#10;       - scrolling into view if needed&#10;       - done scrolling&#10;       - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;     - retrying click action&#10;       - waiting 500ms&#10;&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TimeoutError: locator.click: Timeout 10000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//span[text()=\'Filtros\']/parent::div').first()&#10;    - locator resolved to &amp;lt;div matripple=&quot;&quot; id=&quot;tabHandler&quot; _ngcontent-fdq-c34=&quot;&quot; class=&quot;white-background rounded-bottom primary-color position-absolute d-flex flex-row align-items-center justify-content-center mat-ripple&quot;&amp;gt;…&amp;lt;/div&amp;gt;&#10;  - attempting click action&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;      - scrolling into view if needed&#10;      - done scrolling&#10;      - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;    - retrying click action&#10;    - waiting 20ms&#10;    2 × waiting for element to be visible, enabled and stable&#10;      - element is visible, enabled and stable&#10;      - scrolling into view if needed&#10;      - done scrolling&#10;      - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;    - retrying click action&#10;      - waiting 100ms&#10;    19 × waiting for element to be visible, enabled and stable&#10;       - element is visible, enabled and stable&#10;       - scrolling into view if needed&#10;       - done scrolling&#10;       - &amp;lt;div class=&quot;cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing&quot;&amp;gt;&amp;lt;/div&amp;gt; from &amp;lt;div class=&quot;cdk-overlay-container&quot;&amp;gt;…&amp;lt;/div&amp;gt; subtree intercepts pointer events&#10;     - retrying click action&#10;       - waiting 500ms&#10;&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.Contratos.AlteraçãoContratual.TrocaBancoGestor.CCEAR.AlteracaoContratual" name="[Jornada 07] PGDCR-1861: Validar Trava de Obrigatoriedade do Agente Financeiro" time="70.590">
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de UI para a funcionalidade de alteração contratual troca do banco gestor&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1860&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1868&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1871&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1865&#10;Test Case: http://centraldeservicosccee.atlassian.net/browse/PGDCR-1861&#10;Test Case: https://centraldeservicosccee.atlassian.net/browse/PGDCR-1862"/>
+</properties>
+</testsuite>
+</testsuite>
+</testsuite>
+</testsuite>
+<testsuite name="Consultar" tests="17" errors="0" failures="0" skipped="0" time="1269.629" timestamp="">
+<testsuite name="ConsultaContratos" tests="11" errors="0" failures="0" skipped="0" time="881.129" timestamp="">
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível consultar contratos CCEAR" time="66.128">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível realizar filtro de contratos pelo número de contrato" time="70.214">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Não deve ser retornado nenhum contrato ao pesquisar por um número de contrato inexistentes" time="59.423">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível realizar filtro sequencial de contratos por número válido e inválido" time="94.212">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível filtrar contratos por todos os tipos sequencialmente" time="117.317">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível filtrar contratos por produto válido" time="78.512">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Campo número do contrato não deve aceitar caracteres não numéricos" time="57.630">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível filtrar contratos por leilão válido" time="81.527">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível filtrar contratos por comprador válido" time="81.767">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível filtrar contratos por vendedor válido" time="86.369">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.ConsultaContratos" name="Deve ser possível ordenar os contratos por diferentes colunas" time="88.030">
+</testcase>
+<properties>
+<property name="Documentation" value="Testes de UI para a funcionalidade de consulta de contratos no cockpit."/>
+</properties>
+</testsuite>
+<testsuite name="GestaoContratos" tests="6" errors="0" failures="0" skipped="0" time="388.499" timestamp="">
+<testcase classname="Tests.Ui.Contratos.Consultar.GestaoContratos" name="[Tipo de contrato] Validar autocomplete no filtro de produto com nome parcial" time="49.726">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.GestaoContratos" name="[Tipo de contrato] Validar filtro dependente entre Leilão e Produto" time="64.855">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.GestaoContratos" name="[Tipo de contrato] Verificar rolagem da página ao expandir painel de filtros" time="69.266">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.GestaoContratos" name="[Tipo de contrato] Validar botão 'Limpar' reseta todos os campos" time="95.373">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.GestaoContratos" name="[Tipo de contrato] Validar carregamento automático da lista de contratos ao acessar a tela" time="46.544">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Consultar.GestaoContratos" name="[Tipo de contrato] Validar truncamento e tooltip do campo 'Tipo de operação'" time="62.734">
+</testcase>
+<properties>
+<property name="Documentation" value="UI tests for Contract Management (Gestão de Contratos).&#10;&#10;Estes testes validam as funcionalidades da aba de Gestão de Contratos,&#10;incluindo filtros avançados, comportamento de UI e carregamento automático."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="Detalhes" tests="13" errors="0" failures="2" skipped="2" time="1144.918" timestamp="">
+<testsuite name="DetalharContatoTC" tests="3" errors="0" failures="0" skipped="2" time="142.364" timestamp="2026-07-06T12:11:34.213000">
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContatoTC" name="[Detalhar Contrato] Validar exibição informações gerais das partes relacionadas vendedor" time="140.960">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContatoTC" name="[Detalhar Contrato] Validar exibição do Cedente" time="1.404">
+<skipped message="⚠️ Skip: Pool de contratos Cedente CCEAR vazio no PRIMARY." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContatoTC" name="[Detalhar Contrato] Validar comportamento de colapsar/expandir cartões" time="1.904">
+<skipped message="⚠️ Skip: Pool de contratos Cedente CCEAR vazio no PRIMARY." type="SkipExecution"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para a funcionalidade de Detalhamento de Contratos.&#10;Segue o padrão de 3 camadas (Intent, Flows, Technical) do GEMINI.md."/>
+</properties>
+</testsuite>
+<testsuite name="DetalharContratoOriginal" tests="3" errors="0" failures="0" skipped="0" time="283.814" timestamp="2026-07-06T12:11:46.512000">
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoOriginal" name="[Detalhar Contrato] Validar exibição dados gerais da operação para contratos com aditamento" time="132.069">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoOriginal" name="[Detalhar Contrato] Exibir corretamente a aba 'Partes relacionadas'" time="151.745">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoOriginal" name="[Detalhar Contrato] Exibir corretamente a aba de 'Etapas do documento'" time="125.244">
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para detalhamento de contrato original&#10;Migrado para o padrão de 3 camadas e agnóstico a dados.&#10;Legacy: app&#09;estsuidetalhar_contratoscontrato-original.robot"/>
+</properties>
+</testsuite>
+<testsuite name="DetalharContratoRegrasDinamicas" tests="2" errors="0" failures="1" skipped="0" time="213.351" timestamp="">
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoRegrasDinamicas" name="[Detalhar Contrato] Aba 'Assinatura' não deve ser exibida para contratos de origem automática" time="110.782">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoRegrasDinamicas" name="[Detalhar Contrato] Aba 'Dados bancários' não deve ser exibida para partes sem cadastro financeiro" time="102.569">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for locator('xpath=(//tbody//tr[contains(@class, \'mat-row\') or contains(@class, \'mat-mdc-row\')])[1]//td[contains(., &quot;30234&quot;)]').first() to be visible&#10;&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TIMEOUT_LOGIN: 45s aguardando Dashboard (URL: &lt;a href=&quot;https://hml-prj-operacao.energia.org.br/ui&quot;&gt;https://hml-prj-operacao.energia.org.br/ui&lt;/a&gt;, Title: CCEE - Operações, Login: crissi0g0). Screenshot capturada.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suíte de Testes E2E para Regras Dinâmicas de Detalhamento de Contrato.&#10;Cobre as regras de negócio de Origem Automática (PGDCR-1237) e Ocultações Dinâmicas (PGDCR-1214).&#10;Executa em ambiente SGC-Frontend com mock/bypass do Keycloak via DataFactory."/>
+</properties>
+</testsuite>
+<testsuite name="DetalharContratoTA" tests="3" errors="0" failures="0" skipped="0" time="252.520" timestamp="2026-07-06T12:14:28.324000">
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoTA" name="[Detalhar Contrato] Validar exibição dados gerais da operação para contratos com aditamento" time="116.566">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoTA" name="[Detalhar Contrato] Verificar comportamento da seção 'Partes relacionadas' para CCEAR" time="135.954">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharContratoTA" name="[Detalhar Contrato] Exibir corretamente a aba de 'Etapas do documento'" time="129.925">
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para detalhamento de contrato TA.&#10;Migrado para o padrão de 3 camadas e agnóstico a dados."/>
+</properties>
+</testsuite>
+<testsuite name="DetalharTrocaBancoGestor" tests="2" errors="0" failures="1" skipped="0" time="252.869" timestamp="">
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharTrocaBancoGestor" name="[Detalhar Contrato] Validar exibição detalhes CCEAR por número da operação (Troca Banco Gestor)" time="111.006">
+</testcase>
+<testcase classname="Tests.Ui.Contratos.Detalhes.DetalharTrocaBancoGestor" name="[Detalhar Contrato] Validar aba 'Representantes para comunicação' do Comprador" time="141.863">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//mat-panel-title[contains(., &quot;Comprador&quot;)]//ancestor::fx-expandable-panel//div[@class=&quot;clean-sub-tabs&quot;]//button[contains(., &quot;Representantes para comunicação&quot;)]').first() to be visible&#10;&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TimeoutError: locator.waitFor: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for locator('//mat-panel-title[contains(., &quot;Comprador&quot;)]//ancestor::fx-expandable-panel//div[@class=&quot;clean-sub-tabs&quot;]//button[contains(., &quot;Representantes para comunicação&quot;)]').first() to be visible&#10;&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para validar o detalhamento de contratos no cenário de Troca de Banco Gestor."/>
+</properties>
+</testsuite>
+</testsuite>
+</testsuite>
+<testsuite name="EnvioDados" tests="15" errors="0" failures="2" skipped="3" time="1352.785" timestamp="">
+<testsuite name="CCEAR" tests="11" errors="0" failures="2" skipped="1" time="1096.547" timestamp="">
+<testsuite name="EnviarDadosComprador" tests="6" errors="0" failures="2" skipped="1" time="584.994" timestamp="">
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosComprador" name="[Comprador CCEAR] Validação Completa com Sucesso com filial (Happy Path)" time="190.978">
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosComprador" name="[Comprador CCEAR] Validação de rateio de filiais impeditivo" time="0.001">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Parent suite setup failed:&#10;Não foi possível provisionar a massa Comprador após 5 tentativas de busca no banco/BPM.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TIMEOUT_LOGIN: 45s aguardando Dashboard (URL: &lt;a href=&quot;https://hml-prj-operacao.energia.org.br/ui&quot;&gt;https://hml-prj-operacao.energia.org.br/ui&lt;/a&gt;, Title: CCEE - Operações, Login: leoalvd0). Screenshot capturada.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosComprador" name="[Comprador CCEAR] Validação Completa com Sucesso em Lote" time="2.791">
+<skipped message="Lote: Nenhuma instância compatível encontrada para batch (mesmo CD_ATO + Empreendimento). Massa insuficiente no Staging." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosComprador" name="[Comprador CCEAR] Validação de erros de CNPJ" time="0.001">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Parent suite setup failed:&#10;Não foi possível provisionar a massa Comprador após 5 tentativas de busca no banco/BPM.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; TIMEOUT_LOGIN: 45s aguardando Dashboard (URL: &lt;a href=&quot;https://hml-prj-operacao.energia.org.br/ui&quot;&gt;https://hml-prj-operacao.energia.org.br/ui&lt;/a&gt;, Title: CCEE - Operações, Login: joaoazev1). Screenshot capturada.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosComprador" name="[Comprador CCEAR] Ativação do checkbox de Garantia (CCG)" time="155.481">
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosComprador" name="[Comprador CCEAR] Validação Completa com Sucesso sem filial e conta reserva" time="131.545">
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para o envio de dados CCEAR na perspectiva do Comprador (Jornada 02).&#10;Segue o padrão de 3 camadas (Intent, Flows, Technical) do GEMINI.md."/>
+</properties>
+</testsuite>
+<testsuite name="EnviarDadosSeguranca" tests="1" errors="0" failures="0" skipped="0" time="80.376" timestamp="2026-07-06T12:19:52.729551">
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosSeguranca" name="[Segurança CCEAR] Agente não autorizado não deve acessar tarefa de outro agente" time="79.903">
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes de segurança para Envio de Dados CCEAR.&#10;Valida fronteiras de autorização: agentes não-vinculados ao contrato&#10;não devem poder visualizar ou submeter dados na tarefa de outro agente."/>
+</properties>
+</testsuite>
+<testsuite name="EnviarDadosVendedor" tests="4" errors="0" failures="0" skipped="0" time="431.177" timestamp="">
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosVendedor" name="[Vendedor CCEAR] Validação Completa com Sucesso (Happy Path)" time="103.915">
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosVendedor" name="[Vendedor CCEAR] Validação de soma de rateio impeditivo" time="93.923">
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosVendedor" name="[Vendedor CCEAR] Validação de campos impeditivos e obrigatórios" time="78.992">
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CCEAR.EnviarDadosVendedor" name="[Vendedor CCEAR] Validação de abertura e carregamento da tarefa no BPM" time="38.675">
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para o envio de dados CCEAR na perspectiva do Vendedor (Jornada 01).&#10;Segue o padrão de 3 camadas (Intent, Flows, Technical) do GEMINI.md."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="CER" tests="2" errors="0" failures="0" skipped="0" time="200.850" timestamp="">
+<testsuite name="EnviarDadosCER" tests="2" errors="0" failures="0" skipped="0" time="200.850" timestamp="">
+<testcase classname="Tests.Ui.EnvioDados.CER.EnviarDadosCER" name="[Envio Dados CER - Vendedor] Validação Completa com Sucesso (Happy Path)" time="107.214">
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CER.EnviarDadosCER" name="[Envio Dados CER - Vendedor] Validação de erros em campos obrigatórios" time="93.636">
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para validar o envio de dados de contratos CER (Vendedor).&#10;Segue o padrão de 3 camadas (Intent, Flows, Technical) do GEMINI.md."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="CRCAP" tests="2" errors="0" failures="0" skipped="2" time="55.389" timestamp="2026-07-06T12:25:18.346000">
+<testsuite name="EnviarDadosCRCAP" tests="2" errors="0" failures="0" skipped="2" time="55.383" timestamp="2026-07-06T12:25:18.348000">
+<testcase classname="Tests.Ui.EnvioDados.CRCAP.EnviarDadosCRCAP" name="[Envio Dados CRCAP - Vendedor] Validação Completa com Sucesso (Happy Path)" time="25.115">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.EnvioDados.CRCAP.EnviarDadosCRCAP" name="[Envio Dados CRCAP - Vendedor] Validação de erros em campos obrigatórios" time="25.405">
+<skipped message="CRCAP_UI [Seller]: Todas as instâncias estão em estado terminal no BPM ou sem login H29B válido. Sem massa recuperável." type="SkipExecution"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para validar o envio de dados de contratos CRCAP (Vendedor).&#10;Segue o padrão de 3 camadas (Intent, Flows, Technical) do GEMINI.md."/>
+</properties>
+</testsuite>
+</testsuite>
+</testsuite>
+<testsuite name="GestaoContratosGAAC" tests="9" errors="0" failures="3" skipped="3" time="555.193" timestamp="">
+<testsuite name="GestaoContratosGAAC" tests="9" errors="0" failures="3" skipped="3" time="555.193" timestamp="">
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-2157/2151: Validar Avanço e Retorno de Etapa (Front-End)" time="107.243">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; contratos retornaram para a etapa escolhida com sucesso! != Uma ou mais operações estão em situações transitórias e não podem ser movimentadas.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; contratos retornaram para a etapa escolhida com sucesso! != Uma ou mais operações estão em situações transitórias e não podem ser movimentadas.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-XXXX: Validar Retorno Para Etapa Distante" time="55.463">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; contratos avançaram para a etapa escolhida com sucesso! != Uma ou mais operações estão em situações transitórias e não podem ser movimentadas.&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; contratos avançaram para a etapa escolhida com sucesso! != Uma ou mais operações estão em situações transitórias e não podem ser movimentadas.&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-2143: Validar Cancelamento de Processo" time="90.296">
+<failure message="*HTML* &lt;span class=&quot;merge&quot;&gt;Test has been re-executed and results merged.&lt;/span&gt;&lt;hr&gt;&lt;span class=&quot;new-status&quot;&gt;New status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;new-message&quot;&gt;New message:&lt;/span&gt; Keyword 'Validar Etapa Banco Atualizada' failed after retrying for 30 seconds. The last error was: Etapa no banco ainda é Elaboração do Contrato, aguardando Cancelado.: Elaboração do Contrato != Cancelado&lt;br&gt;&lt;hr&gt;&lt;span class=&quot;old-status&quot;&gt;Old status:&lt;/span&gt; &lt;span class=&quot;fail&quot;&gt;FAIL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;old-message&quot;&gt;Old message:&lt;/span&gt; Keyword 'Validar Etapa Banco Atualizada' failed after retrying for 30 seconds. The last error was: Etapa no banco ainda é Elaboração do Contrato, aguardando Cancelado.: Elaboração do Contrato != Cancelado&lt;br&gt;" type="AssertionError"/>
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-XXXX: Validar Bloqueio de Cancelamento para Contrato Nao Ativo" time="59.776">
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-2153/2159: Validar Bloqueio de Lote com Etapas Distintas" time="44.505">
+<skipped message="Nenhum par de contratos com etapas distintas visível na grid." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-XXXX: Validar Controle de Acesso (RBAC) para Perfis Nao-GAAC" time="65.292">
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-2146: Validar Alertas de Ação Sem Seleção" time="39.610">
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-2166: Validar Controle de Acesso e Cancelar Modal" time="40.019">
+<skipped message="Sem massa de dados para reinício." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.GestaoContratosGAAC.GestaoContratosGAAC" name="PGDCR-2163: Validar Reinício de Tarefas" time="46.152">
+<skipped message="Sem massa de dados para reinício." type="SkipExecution"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suíte de testes E2E para a Gestão de Contratos GAAC (Jornada 17).&#10;Consolida 40 cenários manuais em 8 fluxos mestres orientados a dados (DDT)."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="Login" tests="4" errors="0" failures="0" skipped="0" time="42.016" timestamp="2026-07-06T12:28:49.255000">
+<testsuite name="Login Presentation" tests="4" errors="0" failures="0" skipped="0" time="42.016" timestamp="2026-07-06T12:28:49.257000">
+<testcase classname="Tests.Ui.Login.Login Presentation" name="Login Com Credenciais Válidas Deve Acessar O Cockpit Com Sucesso" time="34.670">
+</testcase>
+<testcase classname="Tests.Ui.Login.Login Presentation" name="Login Com Senha Incorreta Deve Exibir Mensagem De Erro" time="7.346">
+</testcase>
+<testcase classname="Tests.Ui.Login.Login Presentation" name="Login Com Usuário Inexistente Deve Exibir Mensagem De Erro" time="7.319">
+</testcase>
+<testcase classname="Tests.Ui.Login.Login Presentation" name="Login Com Campos Vazios Deve Permanecer Na Tela De Login" time="6.206">
+</testcase>
+<properties>
+<property name="Documentation" value="Suíte de testes para a funcionalidade de Login no Cockpit.&#10;Valida cenários positivos e negativos de autenticação via Keycloak."/>
+</properties>
+</testsuite>
+</testsuite>
+<testsuite name="Minuta" tests="8" errors="0" failures="0" skipped="8" time="82.870" timestamp="2026-07-06T12:29:23.039000">
+<testsuite name="Validar-Minuta-Comprador" tests="4" errors="0" failures="0" skipped="4" time="46.672" timestamp="2026-07-06T12:29:23.041000">
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Comprador" name="[J08/09] CM3 — Ajustar Dados E Anexar" time="0.002">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Buyer]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Comprador" name="[J08/09] CM1 — Operacao Em Lote" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Buyer]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Comprador" name="[J08/09] CM2 — Filtros E Manifestacoes" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Buyer]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Comprador" name="[J08/09] CM6 — Download ZIP" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Buyer]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para a Validação de Minuta - Comprador.&#10;Jornadas 08 e 09 — Cenários Mestres DDT.&#10;CM3 (PGDCR-2369), CM1 (PGDCR-2384), CM2 (PGDCR-2377),&#10;CM6 (PGDCR-2382)."/>
+</properties>
+</testsuite>
+<testsuite name="Validar-Minuta-Vendedor" tests="4" errors="0" failures="0" skipped="4" time="54.682" timestamp="2026-07-06T12:29:51.224000">
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Vendedor" name="[J08/09] CM3 — Ajustar Dados E Anexar" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Seller]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Vendedor" name="[J08/09] CM1 — Operacao Em Lote" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Seller]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Vendedor" name="[J08/09] CM2 — Filtros E Manifestacoes" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Seller]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<testcase classname="Tests.Ui.Minuta.Validar-Minuta-Vendedor" name="[J08/09] CM6 — Download ZIP" time="0.001">
+<skipped message="Skipped in parent suite setup:&#10;Validation [Seller]: Nenhuma instância natural e ativa encontrada para Validação de Minuta." type="SkipExecution"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Suite de testes para a Validação de Minuta - Vendedor.&#10;Jornadas 08 e 09 — Cenários Mestres DDT.&#10;CM3 (PGDCR-2369), CM1 (PGDCR-2384), CM2 (PGDCR-2377),&#10;CM6 (PGDCR-2382)."/>
+</properties>
+</testsuite>
+</testsuite>
+</testsuite>
+<properties>
+<property name="Documentation" value="The __init__.robot file is executed before any test suite or group of suites.&#10;It serves as the central setup point for:&#10;- Environment variables loading (.env files)&#10;- Database connection initialization and cleanup&#10;- Global configuration and teardown"/>
+</properties>
+</testsuite>
