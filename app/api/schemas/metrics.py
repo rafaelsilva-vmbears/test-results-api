@@ -98,3 +98,11 @@ class PerformanceMetricsSchema(BaseModel):
     environment: str
     avg_execution_time_seconds: float
     slowest_tests: List[SlowestTestSchema]
+
+class StableTestItemSchema(BaseModel):
+    """Represents a test that is highly stable."""
+    test_name: str
+    total_executions: int
+    passed_count: int
+    pass_rate: float
+

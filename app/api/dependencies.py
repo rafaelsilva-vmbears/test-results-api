@@ -15,12 +15,14 @@ from app.api.composer.get_run_summary_compose import get_run_summary_use_case_co
 from app.api.composer.get_execution_by_id_use_case_composer import get_execution_by_id_use_case_composer
 from app.api.composer.get_module_health_use_case_composer import get_module_health_use_case_composer
 from app.api.composer.get_flaky_tests_use_case_composer import get_flaky_tests_use_case_composer
+from app.api.composer.get_stable_tests_use_case_composer import get_stable_tests_use_case_composer
 from app.api.composer.get_trends_use_case_composer import get_trends_use_case_composer
 from app.api.composer.get_test_cases_use_case_composer import get_test_cases_use_case_composer
 from app.api.composer.get_mttr_use_case_composer import get_mttr_use_case_composer
 from app.api.composer.get_performance_metrics_use_case_composer import get_performance_metrics_use_case_composer
 from app.application.use_cases.metrics.get_module_health_use_case import GetModuleHealthUseCase
 from app.application.use_cases.metrics.get_flaky_tests_use_case import GetFlakyTestsUseCase
+from app.application.use_cases.metrics.get_stable_tests_use_case import GetStableTestsUseCase
 from app.application.use_cases.metrics.get_trends_use_case import GetTrendsUseCase
 from app.application.use_cases.metrics.get_test_cases_use_case import GetTestCasesUseCase
 from app.application.use_cases.metrics.get_mttr_use_case import GetMTTRUseCase
@@ -57,6 +59,9 @@ def get_module_health_use_case(adapter: MongoDatabaseAdapter = Depends(get_db_ad
 
 def get_flaky_tests_use_case(adapter: MongoDatabaseAdapter = Depends(get_db_adapter),) -> GetFlakyTestsUseCase:
     return get_flaky_tests_use_case_composer(adapter)
+
+def get_stable_tests_use_case(adapter: MongoDatabaseAdapter = Depends(get_db_adapter),) -> GetStableTestsUseCase:
+    return get_stable_tests_use_case_composer(adapter)
 
 def get_trends_use_case(adapter: MongoDatabaseAdapter = Depends(get_db_adapter),) -> GetTrendsUseCase:
     return get_trends_use_case_composer(adapter)

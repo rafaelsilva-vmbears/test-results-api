@@ -13,6 +13,7 @@ from app.domain.entities.failed_test_summary import FailedTestSummary
 
 from app.domain.entities.module_health_summary import ModuleHealthSummary
 from app.domain.entities.flaky_test_summary import FlakyTestSummary
+from app.domain.entities.stable_test_summary import StableTestSummary
 from app.domain.entities.trend_summary import TrendSummary
 from app.domain.entities.mttr_summary import MTTRSummary
 from app.domain.entities.common_error_summary import CommonErrorSummary
@@ -58,7 +59,16 @@ class MetricsRepositoryInterface(Protocol):
             start_dt: Optional[datetime] = None,
             end_dt: Optional[datetime] = None,
             last_runs: Optional[int] = None) -> List[FlakyTestSummary]:
-        """Retrieve a list of flaky tests with instability scores."""
+        """Calculates instability score for tests that failed at least once."""
+
+    def get_stable_tests(
+            self,
+            project: str,
+            environment: str,
+            start_dt: Optional[datetime] = None,
+            end_dt: Optional[datetime] = None,
+            last_runs: Optional[int] = None) -> List[StableTestSummary]:
+        """Finds tests that are consistently passing with high reliability."""
 
     def get_trends(
             self,

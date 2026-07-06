@@ -472,3 +472,45 @@ class MetricsRepository(MetricsRepositoryInterface):
             avg_execution_time_seconds=avg_time,
             slowest_tests=slowest_tests
         )
+
+    def get_stable_tests(
+            self,
+            project: str,
+            environment: str,
+            start_dt: Optional[datetime] = None, end_dt: Optional[datetime] = None, last_runs: Optional[int] = None) -> List['StableTestSummary']:
+
+        pipeline = self._build_match_pipeline(project, environment, start_dt, end_dt, last_runs) + [
+            {"$unwind": "$test_results"},
+            {"$group": {
+                "_id": "$test_results.name",
+                "total_executions": {"$sum": 1},
+                "passed_count": {
+                    "$sum": {"$cond": [{"$eq": ["$test_results.status", "passed"]}, 1, 0]}
+                }
+            }},
+            {"$addFields": {
+                "pass_rate": {
+                    "$cond": [
+                        {"$gt": ["$total_executions", 0]},
+                        {"$multiply": [{"$divide": ["$passed_count", "$total_executions"]}, 100]},
+                        0
+                    ]
+                }
+            }},
+            {"$match": {"pass_rate": {"$gte": 95}}},
+            {"$sort": {"total_executions": -1, "pass_rate": -1}},
+            {"$limit": 20}
+        ]
+
+        from app.domain.entities.stable_test_summary import StableTestSummary
+        results_list = list(self.adapter.get_collection(self.collection).aggregate(pipeline))
+
+        return [
+            StableTestSummary(
+                test_name=res["_id"] if res["_id"] else "No name",
+                total_executions=res.get("total_executions", 0),
+                passed_count=res.get("passed_count", 0),
+                pass_rate=round(res.get("pass_rate", 0), 2)
+            )
+            for res in results_list
+        ]
